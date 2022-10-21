@@ -1,0 +1,5 @@
+APP_IP=sF9ad59V31WeuJnYgYqkvavV9phrFPRWRNWS8QxR
+DAPP_URL=https://teigpa1klisx.grandmoralis.com:2053/server
+APP_DOMAIN=auth.app
+MORALIS_API_KEY=XGP1CD8JvgVmj17qTIGjH0mr9lzM8uSTT8eX28Y15iNm6G6Ds635CkZFs2fov6PS
+NEXTAUTH_URL=http://localhost:3000
