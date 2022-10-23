@@ -1,10 +1,12 @@
 ## MetaRent Project
 
-### Build
-run commnad npm run build
+### Steps
+1. Clone the project
+2. run - npm install
+3. run - npm run build
+4. run - npm run dev
+5. run - npm run start(Production)
 
-### Dev build
-run command npm run dev
 
-### production build
-run command npm run start
+Stay tuned for more...
+
