@@ -6,10 +6,24 @@ import "@openzeppelin/contracts/ownership/Ownable.sol";
 import "hardhat/console.sol";
 
 /*
-      
-    * The Ricardian Smart Contract for MetaRent - Car Contract
-     
-   */
+* The Ricardian Smart Contract for MetaRent - Car Contract
+ */
+
+
+// Car Struct
+struct Car {
+    string Name;
+    string Model;
+    string EngineId;
+    string Colour;
+}
+
+// Rental Struct
+struct Rental {
+    address Driver;
+    
+
+}
 
 contract CarContract {
 
