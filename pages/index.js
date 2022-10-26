@@ -8,8 +8,6 @@ import Header from "../components/Header";
 export default function Home() {
   const {isAuthenticated, user, isAuthenticating, authenticate, logout, isLoggingOut} = useMoralis()
  
-
-
   if (!isAuthenticated) {
     return (
       <>
