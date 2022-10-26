@@ -9,11 +9,6 @@ export default function Home() {
   const {isAuthenticated, user, isAuthenticating, authenticate, logout, isLoggingOut} = useMoralis()
  
 
- useEffect(()=>{
-  console.log('hello from here...')
-  
-  
- },[])
 
   if (!isAuthenticated) {
     return (
