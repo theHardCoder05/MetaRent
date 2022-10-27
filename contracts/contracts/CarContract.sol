@@ -42,12 +42,7 @@ contract CarContract is  Ownable, AccessControl, ReentrancyGuard{
      */
     uint  private rentalId;
     
-    /*
 
-    /*
-    Auto generated ID - Potentially, could use ChainLink(Oracle).
-     */
-    uint  private carId;
     
     /*
 
@@ -84,10 +79,7 @@ contract CarContract is  Ownable, AccessControl, ReentrancyGuard{
      */
     event LogRentCar(uint rentalId);
 
-    /*
-    Event log for withdraw fund upon car returned
-     */
-    event LogWithdraw(address render, uint deposit);
+   
 
     /**
     event log for fallback function trigger
@@ -115,6 +107,7 @@ contract CarContract is  Ownable, AccessControl, ReentrancyGuard{
         uint duration;
         uint deposit;
         uint cid;
+        uint basedPrice;
         RentalState state;
     }
 
@@ -128,15 +121,7 @@ contract CarContract is  Ownable, AccessControl, ReentrancyGuard{
         _;
     }
 
-    /*
-      Modifier to check whether the Driver's address whether is refundable.
-     */
-    modifier IsRefundable(address driver) {
-    require((Rentals[driver].driver != address(0)) && (Rentals[driver].state == RentalState.Occuppied), "Not refundable with error");
-    
-      _;
-   }
-
+ 
   /*
    Modifier - To prevent Owner itself to make a car booking. 
    */
@@ -180,7 +165,7 @@ contract CarContract is  Ownable, AccessControl, ReentrancyGuard{
  @param:  booking date - The exact booking date.
  @param:  return - True. If no errors.
  */
-function rentCar(uint _uid,string calldata _drivername,bytes32 _drivinglicenseid, uint _datetime) external  payable canBook(msg.sender) isNotOwner(msg.sender)  returns(bool) {
+function rentCar(uint _uid,string calldata _drivername,bytes32 _drivinglicenseid, uint _datetime,uint _basedPrice) external  payable canBook(msg.sender) isNotOwner(msg.sender)  returns(bool) {
     uint256 amount = msg.value;
     address payable driver = payable(msg.sender);
     Rentals[driver] = Rental({
@@ -192,6 +177,7 @@ function rentCar(uint _uid,string calldata _drivername,bytes32 _drivinglicenseid
     deposit:amount,
     driver: driver,
     cid:_uid,
+    basedPrice: _basedPrice,
     state: RentalState.Occuppied
     });
 
